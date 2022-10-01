@@ -1,3 +1,4 @@
+from pathlib import Path
 from decouple import config
 
 # DATABASE CONFIG
@@ -27,3 +28,23 @@ data = [
         "url": BIBLIOTECAS_URL
     },
 ]
+
+# FILES CONFIG
+BASE_FILE_DIR = Path("data")
+
+months = (
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre',
+)
+
+file_name = "{name}/{year}-{month_v}/{name}-{year}-{month}-{day}.csv"
