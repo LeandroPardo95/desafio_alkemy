@@ -5,8 +5,9 @@ from decouple import config
 USER = config('USER')
 PASS = config('PASS')
 HOST = config('HOST')
-PORT = config('PORT')
+PORT = int(config('PORT'))
 DB_NAME = config('DB_NAME')
+
 
 # URLS CONFIG
 MUSEOS_URL = config('MUSEOS_URL')
