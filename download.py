@@ -1,3 +1,4 @@
+import csv
 import requests
 from datetime import datetime
 from config import BASE_FILE_DIR
@@ -7,14 +8,20 @@ from config import file_name, months
 format_link = 'https://docs.google.com/spreadsheet/ccc?key={id}&output=csv'
 
 
-def download_data(data: list):
+def download_data(data: list) -> list:
     """La funcion se encarga de descargar los datos de sheets en formato csv y guardarlos en sus correspondientes rutas
 
     Args:
         data (list): Debe ser una lista compuesta de diccionarios que con las claves:
                     url (str): la url del archivo de google sheets.
                     name (str): nombre de la categoria.
+
+    Returns:
+        csv_list (list): Retorna una lista con la ubicación de los archivos .csv descargados con el objetivo de poder cargar sus datos en la base de datos.
     """
+
+    csv_list = []
+
     for category in data:
 
         id_sheets = category["url"].split("/")[-2]
@@ -36,3 +43,7 @@ def download_data(data: list):
 
         with open(m_path, 'w') as file:
             file.write(r.text)
+
+        csv_list.append({'category': category['name'], 'file_path': m_path})
+
+    return csv_list

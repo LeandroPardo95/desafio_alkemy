@@ -5,7 +5,6 @@ from config import HOST, PORT, USER, PASS, DB_NAME
 # Ubicacion del script sql que se encarga de crear las tablas
 script_path = Path("sql/script.sql")
 
-#
 query = open(script_path).read()
 
 
