@@ -31,7 +31,7 @@ def download_data(data: list) -> list:
             name=category["name"],
             year=datetime.now().year,
             month=datetime.now().month,
-            month_v=months[datetime.now().month - 1],
+            month_v=months[datetime.now().month],
             day=datetime.now().day
         )
 

@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS registros (
     localidad VARCHAR(255) NOT NULL,
     nombre VARCHAR(255) NOT NULL,
     domicilio VARCHAR(255) NOT NULL,
-    cp VARCHAR(255) NOT NULL,
+    codigo_postal VARCHAR(255) NOT NULL,
     telefono VARCHAR(255) NOT NULL, 
     mail VARCHAR(255) NOT NULL,
     web VARCHAR(255) NOT NULL
