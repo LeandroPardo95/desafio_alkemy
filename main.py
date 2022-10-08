@@ -1,6 +1,10 @@
+import pandas as pd
+from script import engine
+
 from config import data
 from download import download_data
 from normalizers import DataNormalizer, CineDataNormalizer
+from loadesrs import Loader
 
 if __name__ == "__main__":
 
@@ -14,4 +18,6 @@ if __name__ == "__main__":
         df_list.append(normalizer.transform())
 
     # concatenar y cargar
-    df_list
+    registros_df = pd.concat(df_list)
+
+    Loader('registros', registros_df).load_data()
