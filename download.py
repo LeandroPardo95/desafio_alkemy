@@ -1,4 +1,4 @@
-import csv
+
 import requests
 from datetime import datetime
 from config import BASE_FILE_DIR
@@ -44,6 +44,10 @@ def download_data(data: list) -> list:
         with open(m_path, 'w') as file:
             file.write(r.text)
 
-        csv_list.append({'category': category['name'], 'file_path': m_path})
+        csv_list.append(
+            {
+                'category': category['name'],
+                'file_path': m_path.resolve()
+            })
 
     return csv_list

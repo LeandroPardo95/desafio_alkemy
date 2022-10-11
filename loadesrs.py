@@ -16,6 +16,6 @@ class AbstractLoader(metaclass=ABCMeta):
 class Loader(AbstractLoader):
     def load_data(self):
 
-        self.df.to_sql(self.table, con=engine, if_exists="replace")
+        self.df.to_sql(self.table, con=engine, if_exists="append", index=False)
 
         print("Datos subidos a la base de datos")

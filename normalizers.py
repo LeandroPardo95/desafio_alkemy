@@ -94,3 +94,23 @@ class CineDataNormalizer(DataNormalizer):
         ]
 
         return df_res
+
+
+class FuenteNormalizer():
+    def __init__(self, data: list):
+        self.data = data
+
+    def transform(self):
+
+        fuente_list = list()
+
+        for fuente in self.data:
+            df = pd.read_csv(fuente['file_path'], encoding="ISO-8859-1")
+
+            fuente_list.append(
+                {
+                    'fuente': fuente['category'],
+                    'total': len(df.index)
+                })
+
+        return pd.DataFrame(fuente_list)

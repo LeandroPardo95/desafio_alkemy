@@ -1,21 +1,21 @@
 CREATE TABLE IF NOT EXISTS registros (
-    cod_localidad INTEGER NOT NULL,
-    id_provincia INTEGER NOT NULL,
-    id_departamento INTEGER NOT NULL,
-    categoria VARCHAR(255) NOT NULL, 
-    provincia VARCHAR(255) NOT NULL,
-    localidad VARCHAR(255) NOT NULL,
-    nombre VARCHAR(255) NOT NULL,
-    domicilio VARCHAR(255) NOT NULL,
-    codigo_postal VARCHAR(255) NOT NULL,
-    telefono VARCHAR(255) NOT NULL, 
-    mail VARCHAR(255) NOT NULL,
-    web VARCHAR(255) NOT NULL
+    cod_localidad INTEGER,
+    id_provincia INTEGER,
+    id_departamento INTEGER,
+    categoria VARCHAR(255), 
+    provincia VARCHAR(255),
+    localidad VARCHAR(255),
+    nombre VARCHAR(255),
+    domicilio VARCHAR(255),
+    codigo_postal VARCHAR(255),
+    telefono VARCHAR(255), 
+    mail VARCHAR(255),
+    web VARCHAR(255)
 );
 
 
 CREATE TABLE IF NOT EXISTS totales_categoria (
-    categoría VARCHAR(255) NOT NULL,
+    categoria VARCHAR(255) NOT NULL,
     total INTEGER NOT NULL
 );
 
