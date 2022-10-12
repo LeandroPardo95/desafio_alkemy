@@ -1,6 +1,8 @@
 from abc import ABCMeta, abstractmethod
-import pandas as pd
 from script import engine
+import logging
+
+logger = logging.getLogger()
 
 
 class AbstractLoader(metaclass=ABCMeta):
@@ -16,6 +18,6 @@ class AbstractLoader(metaclass=ABCMeta):
 class Loader(AbstractLoader):
     def load_data(self):
 
-        self.df.to_sql(self.table, con=engine, if_exists="append", index=False)
+        logger.debug(f"Loading the table {self.table}")
 
-        print("Datos subidos a la base de datos")
+        self.df.to_sql(self.table, con=engine, if_exists="append", index=False)
