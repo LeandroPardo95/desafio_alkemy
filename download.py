@@ -1,38 +1,36 @@
-
+from abc import ABCMeta, abstractmethod
 import requests
 from datetime import datetime
 from config import BASE_FILE_DIR
 from config import file_name, months
 
 
-format_link = 'https://docs.google.com/spreadsheet/ccc?key={id}&output=csv'
+class AbstractDownloader(metaclass=ABCMeta):
+    def __init__(self, fuente, url):
+        self.fuente = fuente
+        self.url = url
+        self.file_path = None
+
+    @abstractmethod
+    def donwload_data(self):
+        pass
 
 
-def download_data(data: list) -> list:
-    """La funcion se encarga de descargar los datos de sheets en formato csv y guardarlos en sus correspondientes rutas
+class Downloader(AbstractDownloader):
+    def donwload_data(self):
 
-    Args:
-        data (list): Debe ser una lista compuesta de diccionarios que con las claves:
-                    url (str): la url del archivo de google sheets.
-                    name (str): nombre de la categoria.
+        format_link = "https://docs.google.com/spreadsheet/ccc?key={id}&output=csv"
 
-    Returns:
-        csv_list (list): Retorna una lista con la ubicación de los archivos .csv descargados con el objetivo de poder cargar sus datos en la base de datos.
-    """
+        id_sheets = self.url.split("/")[-2]
 
-    csv_list = []
-
-    for category in data:
-
-        id_sheets = category["url"].split("/")[-2]
         url = format_link.format(id=id_sheets)
 
         file = file_name.format(
-            name=category["name"],
+            name=self.fuente,
             year=datetime.now().year,
             month=datetime.now().month,
             month_v=months[datetime.now().month],
-            day=datetime.now().day
+            day=datetime.now().day,
         )
 
         m_path = BASE_FILE_DIR / file
@@ -41,13 +39,9 @@ def download_data(data: list) -> list:
         r = requests.get(url)
         r.encoding = "utf-8"
 
-        with open(m_path, 'w') as file:
+        with open(m_path, "w") as file:
             file.write(r.text)
 
-        csv_list.append(
-            {
-                'category': category['name'],
-                'file_path': m_path.resolve()
-            })
+        self.file_path = m_path.resolve()
 
-    return csv_list
+        return super().donwload_data()

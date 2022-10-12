@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS totales_fuente (
 
 CREATE TABLE IF NOT EXISTS totales_provincia (
     provincia VARCHAR(255) NOT NULL,
+    categoria VARCHAR(255) NOT NULL,
     total INTEGER NOT NULL
 );
 
@@ -33,5 +34,5 @@ CREATE TABLE IF NOT EXISTS cines (
     provincia VARCHAR(255) NOT NULL,
     cant_pantallas INTEGER NOT NULL, 
     cant_butacas INTEGER NOT NULL,
-    cant_espacios_INCAA INTEGER NOT NULL
+    espacios_incaa INTEGER NOT NULL
 );
