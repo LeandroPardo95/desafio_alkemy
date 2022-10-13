@@ -30,5 +30,8 @@ Una vez realiazados estos pasos, ingresarar en el archivo **settings.ini** y cam
 **Ejecución**
 
 - Ejecutar el archivo "script.py" para crear las tablas dentro de la base de datos.
+`python script.py`
 - Ejecutar el archivo "main.py" para realizar la descarga de datos, y que los mismos sean normalizados y subidos a sus respectivas tablas dentro de nuestra base de datos.
+`python main.py`
+
 
