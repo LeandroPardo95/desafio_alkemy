@@ -5,9 +5,7 @@ from download import Downloader
 from normalizers import DataNormalizer, CineDataNormalizer, FuenteNormalizer
 from loadesrs import Loader
 
-logging.basicConfig(filename="log.log")
 logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
 
 
 def run():

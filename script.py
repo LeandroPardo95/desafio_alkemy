@@ -1,4 +1,3 @@
-import logging
 from pathlib import Path
 from sqlalchemy import create_engine
 from config import HOST, PORT, USER, PASS, DB_NAME

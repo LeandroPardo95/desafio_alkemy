@@ -1,5 +1,6 @@
 from pathlib import Path
 from decouple import config
+import logging
 
 # DATABASE CONFIG.
 USER = config("USER")
@@ -34,3 +35,10 @@ months = {
 }
 
 file_name = "{name}/{year}-{month_v}/{name}-{year}-{month}-{day}.csv"
+
+# LOGGING CONFIG
+
+FORMAT = "%(asctime)s  %(message)s"
+logging.basicConfig(filename="log.log", format=FORMAT)
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
