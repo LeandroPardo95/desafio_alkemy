@@ -11,7 +11,7 @@ Ejecutar en Git Bash el siguiento comando:
 
 Luego se deben instalar las librerias necesarias para correrlo, esto se hace con el siguiente comando:
 
-`pip install -r requierements.txt`
+`pip install -r requirements.txt`
 
 Una vez realiazados estos pasos, ingresarar en el archivo **settings.ini** y cambiar los siguientes datos por los de su base de datos:
 
